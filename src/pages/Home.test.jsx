@@ -1,6 +1,6 @@
 import { describe, expect, test, beforeEach } from '@jest/globals';
 import { Provider } from 'react-redux';
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Home from './Home';
 import { addAnswerToQuestion, addAnswerToUser, createAppStore } from '../store';
@@ -107,10 +107,12 @@ describe('Home page', () => {
     const activeList = screen.getByTestId('active-list');
     expect(within(activeList).getByText(/travel to the moon/i)).toBeInTheDocument();
 
-    store.dispatch(
-      addAnswerToQuestion({ authedUser: 'sara', qid: 'q1', answer: 'optionOne' })
-    );
-    store.dispatch(addAnswerToUser({ authedUser: 'sara', qid: 'q1', answer: 'optionOne' }));
+    act(() => {
+      store.dispatch(
+        addAnswerToQuestion({ authedUser: 'sara', qid: 'q1', answer: 'optionOne' })
+      );
+      store.dispatch(addAnswerToUser({ authedUser: 'sara', qid: 'q1', answer: 'optionOne' }));
+    });
 
     fireEvent.click(screen.getByRole('tab', { name: /completed/i }));
     const completedList = screen.getByTestId('completed-list');

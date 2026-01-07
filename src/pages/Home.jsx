@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   addAnswerToQuestion,
   addAnswerToUser,
@@ -29,9 +29,17 @@ const Home = () => {
   const users = useSelector(selectUsers);
   const questions = useSelector(selectQuestions);
   const ui = useSelector(selectUi);
-  const [activeTab, setActiveTab] = useState('active');
+  const location = useLocation();
+  const initialTabFromState = location.state?.initialTab;
+  const [activeTab, setActiveTab] = useState(initialTabFromState || 'active');
   const hasRequestedBootstrap = useRef(false);
   useDocumentTitle('Home');
+
+  useEffect(() => {
+    if (initialTabFromState) {
+      setActiveTab(initialTabFromState);
+    }
+  }, [initialTabFromState]);
 
   useEffect(() => {
     const hasUsers = Object.keys(users || {}).length > 0;

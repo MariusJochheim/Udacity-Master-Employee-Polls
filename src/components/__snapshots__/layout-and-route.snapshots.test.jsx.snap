@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Layout and ProtectedRoute snapshots Layout renders shell for authed user 1`] = `
+<div
+  class="app-shell"
+>
+  <header
+    class="app-header"
+  >
+    <div
+      class="header-inner"
+    >
+      <div
+        class="brand"
+      >
+        <span
+          aria-hidden="true"
+          class="brand-mark"
+        >
+          EP
+        </span>
+        <div>
+          <div>
+            Employee Polls
+          </div>
+          <div
+            class="muted"
+            style="color: rgba(255, 255, 255, 0.75);"
+          >
+            Would You Rather
+          </div>
+        </div>
+      </div>
+      <nav
+        aria-label="Primary navigation"
+        class="nav-links"
+      >
+        <a
+          aria-current="page"
+          class="active"
+          data-discover="true"
+          href="/"
+        >
+          Home
+        </a>
+        <a
+          class=""
+          data-discover="true"
+          href="/leaderboard"
+        >
+          Leaderboard
+        </a>
+        <a
+          class=""
+          data-discover="true"
+          href="/add"
+        >
+          New Poll
+        </a>
+      </nav>
+      <div
+        class="user-actions"
+      >
+        <span
+          class="user-chip"
+        >
+          <span
+            aria-label="Jane Doe"
+            class="avatar avatar-sm"
+          >
+            JD
+          </span>
+          <span>
+            Jane Doe
+          </span>
+        </span>
+        <button
+          class="ui-button ui-button-ghost"
+          type="button"
+        >
+          <span
+            class="button-label"
+          >
+            Logout
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main
+    class="app-content"
+  >
+    <div>
+      Home content
+    </div>
+  </main>
+  <footer
+    class="app-footer"
+  >
+    Would You Rather • Udacity Master Employee Polls
+  </footer>
+</div>
+`;
+
+exports[`Layout and ProtectedRoute snapshots ProtectedRoute renders login redirect for guests 1`] = `
+<div>
+  Login page
+</div>
+`;

@@ -11,6 +11,91 @@ import Spinner from './Spinner';
 import Tabs from './Tabs';
 
 describe('UI components', () => {
+  test('Avatar renders consistently (snapshot)', () => {
+    const { container } = render(<Avatar name="Jane Doe" alt="Profile" />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test('Button renders consistently (snapshot)', () => {
+    const { container } = render(
+      <Button variant="primary" leadingIcon="✓" trailingIcon="→" fullWidth>
+        Continue
+      </Button>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test('EmptyState renders consistently (snapshot)', () => {
+    const { container } = render(
+      <EmptyState
+        title="Nothing here"
+        description="Add a poll to get started"
+        action={<button type="button">Create poll</button>}
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test('InputField renders consistently (snapshot)', () => {
+    const { container } = render(
+      <InputField
+        id="email-field"
+        label="Email"
+        helperText="We will never share your email."
+        placeholder="name@example.com"
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test('RadioCard renders consistently (snapshot)', () => {
+    const { container } = render(
+      <RadioCard
+        name="poll"
+        value="optionOne"
+        label="Option One"
+        description="This is the first option."
+        checked
+        onChange={jest.fn()}
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test('ScoreBadge renders consistently (snapshot)', () => {
+    const { container } = render(<ScoreBadge label="Score" score={7} icon="★" />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test('Spinner renders consistently (snapshot)', () => {
+    const { container } = render(<Spinner label="Loading data" className="inline" />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test('Tabs renders consistently (snapshot)', () => {
+    const tabs = [
+      { key: 'active', label: 'Active', badge: 2 },
+      { key: 'completed', label: 'Completed', badge: 1 },
+    ];
+    const { container } = render(<Tabs tabs={tabs} activeKey="active" onChange={() => {}} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test('Card renders consistently (snapshot)', () => {
+    const { container } = render(
+      <Card
+        title="Snapshot Poll"
+        subtitle="Choose wisely"
+        accentColor="#123456"
+        footer={<span>Footer content</span>}
+      >
+        <p>Snapshot body</p>
+      </Card>
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
   test('Button forwards click events and applies variant class', () => {
     const onClick = jest.fn();
     render(

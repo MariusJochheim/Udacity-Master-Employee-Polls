@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`UI components Avatar renders consistently (snapshot) 1`] = `
+<span
+  aria-label="Profile"
+  class="avatar"
+>
+  JD
+</span>
+`;
+
+exports[`UI components Button renders consistently (snapshot) 1`] = `
+<button
+  class="ui-button ui-button-primary is-full-width"
+  type="button"
+>
+  <span
+    class="button-icon"
+  >
+    ✓
+  </span>
+  <span
+    class="button-label"
+  >
+    Continue
+  </span>
+  <span
+    class="button-icon"
+  >
+    →
+  </span>
+</button>
+`;
+
+exports[`UI components Card renders consistently (snapshot) 1`] = `
+<article
+  class="card"
+>
+  <div
+    class="card-accent"
+    style="background: rgb(18, 52, 86);"
+  />
+  <header
+    class="card-header"
+  >
+    <div>
+      <h3>
+        Snapshot Poll
+      </h3>
+      <p
+        class="muted"
+      >
+        Choose wisely
+      </p>
+    </div>
+  </header>
+  <div
+    class="card-body"
+  >
+    <p>
+      Snapshot body
+    </p>
+  </div>
+  <footer
+    class="card-footer"
+  >
+    <span>
+      Footer content
+    </span>
+  </footer>
+</article>
+`;
+
+exports[`UI components EmptyState renders consistently (snapshot) 1`] = `
+<div
+  class="empty-state"
+  role="status"
+>
+  <div
+    aria-hidden="true"
+    class="empty-illustration"
+  >
+    ✦
+  </div>
+  <h3>
+    Nothing here
+  </h3>
+  <p
+    class="muted"
+  >
+    Add a poll to get started
+  </p>
+  <div
+    class="empty-action"
+  >
+    <button
+      type="button"
+    >
+      Create poll
+    </button>
+  </div>
+</div>
+`;
+
+exports[`UI components InputField renders consistently (snapshot) 1`] = `
+<label
+  class="input-field"
+  for="email-field"
+>
+  <span
+    class="input-label"
+  >
+    Email
+  </span>
+  <input
+    aria-describedby="email-field-helper"
+    aria-invalid="false"
+    class="input-control"
+    id="email-field"
+    placeholder="name@example.com"
+    type="text"
+  />
+  <span
+    class="input-helper "
+    id="email-field-helper"
+  >
+    We will never share your email.
+  </span>
+</label>
+`;
+
+exports[`UI components RadioCard renders consistently (snapshot) 1`] = `
+<label
+  class="radio-card is-checked"
+>
+  <input
+    checked=""
+    name="poll"
+    type="radio"
+    value="optionOne"
+  />
+  <span
+    aria-hidden="true"
+    class="radio-mark"
+  />
+  <div
+    class="radio-card-content"
+  >
+    <p
+      class="radio-card-title"
+    >
+      Option One
+    </p>
+    <p
+      class="radio-card-description"
+    >
+      This is the first option.
+    </p>
+  </div>
+</label>
+`;
+
+exports[`UI components ScoreBadge renders consistently (snapshot) 1`] = `
+<span
+  class="score-badge"
+>
+  <span
+    class="button-icon"
+  >
+    ★
+  </span>
+  <span
+    class="score-label"
+  >
+    Score
+  </span>
+  <span>
+    7
+  </span>
+</span>
+`;
+
+exports[`UI components Spinner renders consistently (snapshot) 1`] = `
+<div
+  aria-label="Loading data"
+  aria-live="polite"
+  class="spinner inline"
+  role="status"
+>
+  <span
+    aria-hidden="true"
+    class="spinner-circle"
+  />
+  <span
+    class="spinner-label"
+  >
+    Loading data
+  </span>
+</div>
+`;
+
+exports[`UI components Tabs renders consistently (snapshot) 1`] = `
+<div
+  class="tabs"
+>
+  <div
+    class="tabs-list"
+    role="tablist"
+    style="--tabs-count: 2;"
+  >
+    <span
+      aria-hidden="true"
+      class="tab-indicator"
+      style="transform: translateX(0%); width: 50%;"
+    />
+    <button
+      aria-selected="true"
+      class="tab"
+      role="tab"
+      type="button"
+    >
+      <span>
+        Active
+      </span>
+      <span
+        class="tab-badge"
+      >
+        2
+      </span>
+    </button>
+    <button
+      aria-selected="false"
+      class="tab"
+      role="tab"
+      type="button"
+    >
+      <span>
+        Completed
+      </span>
+      <span
+        class="tab-badge"
+      >
+        1
+      </span>
+    </button>
+  </div>
+</div>
+`;

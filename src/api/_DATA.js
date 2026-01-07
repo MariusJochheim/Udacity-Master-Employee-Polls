@@ -163,7 +163,7 @@ function formatQuestion ({ optionOneText, optionTwoText, author }) {
 export function _saveQuestion (question) {
   return new Promise((resolve, reject) => {
     if (!question.optionOneText || !question.optionTwoText || !question.author) {
-      reject("Please provide optionOneText, optionTwoText, and author");
+      return reject("Please provide optionOneText, optionTwoText, and author");
     }
 
     const formattedQuestion = formatQuestion(question)
@@ -181,7 +181,7 @@ export function _saveQuestion (question) {
 export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
   return new Promise((resolve, reject) => {
     if (!authedUser || !qid || !answer) {
-      reject("Please provide authedUser, qid, and answer");
+      return reject("Please provide authedUser, qid, and answer");
     }
 
     setTimeout(() => {

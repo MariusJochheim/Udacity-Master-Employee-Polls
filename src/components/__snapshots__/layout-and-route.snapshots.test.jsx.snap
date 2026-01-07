@@ -31,9 +31,31 @@ exports[`Layout and ProtectedRoute snapshots Layout renders shell for authed use
           </div>
         </div>
       </div>
+      <button
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+        aria-label="Toggle primary navigation"
+        class="menu-toggle "
+        type="button"
+      >
+        <span
+          aria-hidden="true"
+          class="menu-icon"
+        >
+          <span />
+          <span />
+          <span />
+        </span>
+        <span
+          class="menu-label"
+        >
+          Menu
+        </span>
+      </button>
       <nav
         aria-label="Primary navigation"
-        class="nav-links"
+        class="nav-links "
+        id="primary-navigation"
       >
         <a
           aria-current="page"

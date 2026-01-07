@@ -60,6 +60,59 @@
   max-width: 540px;
 }
 
+.menu-toggle {
+  display: none;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-off-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 2px;
+}
+
+.menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-1px);
+}
+
+.menu-icon {
+  display: grid;
+  gap: 3px;
+}
+
+.menu-icon span {
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.menu-toggle.is-open .menu-icon span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.menu-toggle.is-open .menu-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-open .menu-icon span:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+.menu-label {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
 .nav-links a {
   color: rgba(255, 255, 255, 0.8);
   padding: var(--spacing-2) var(--spacing-4);
@@ -807,12 +860,48 @@ select:focus {
   .header-inner {
     flex-wrap: wrap;
     gap: var(--spacing-3);
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
   }
 
   .nav-links {
     order: 3;
     width: 100%;
-    overflow-x: auto;
+    flex: 0 0 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-1);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-2);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: var(--shadow-header);
+    transition: max-height var(--transition-base), opacity var(--transition-fast);
+  }
+
+  .nav-links.is-open {
+    max-height: 320px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    width: 100%;
+  }
+
+  .user-actions {
+    order: 2;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
   }
 
   .app-content {

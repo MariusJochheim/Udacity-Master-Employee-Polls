@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   bootstrapApp,
@@ -15,11 +15,13 @@ import Spinner from './Spinner';
 
 const Layout = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
   const authedUser = useSelector(selectAuthedUser);
   const users = useSelector(selectUsers);
   const questions = useSelector(selectQuestions);
   const ui = useSelector(selectUi);
   const hasBootstrapped = useRef(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     if (hasBootstrapped.current) return;
@@ -29,6 +31,10 @@ const Layout = () => {
       dispatch(bootstrapApp());
     }
   }, [dispatch, users, questions]);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -51,7 +57,26 @@ const Layout = () => {
               </div>
             </div>
           </div>
-          <nav className="nav-links" aria-label="Primary navigation">
+          <button
+            type="button"
+            className={`menu-toggle ${isMenuOpen ? 'is-open' : ''}`}
+            aria-label="Toggle primary navigation"
+            aria-expanded={isMenuOpen}
+            aria-controls="primary-navigation"
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            <span className="menu-icon" aria-hidden>
+              <span />
+              <span />
+              <span />
+            </span>
+            <span className="menu-label">{isMenuOpen ? 'Close' : 'Menu'}</span>
+          </button>
+          <nav
+            id="primary-navigation"
+            className={`nav-links ${isMenuOpen ? 'is-open' : ''}`}
+            aria-label="Primary navigation"
+          >
             <NavLink to="/" end>
               Home
             </NavLink>

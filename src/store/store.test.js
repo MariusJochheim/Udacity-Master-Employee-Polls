@@ -1,23 +1,19 @@
-import { beforeAll, beforeEach, describe, expect, jest, test } from '@jest/globals';
+import { beforeEach, describe, expect, jest, test } from '@jest/globals';
+import { _getQuestions, _getUsers, _saveQuestion, _saveQuestionAnswer } from '../api/_DATA';
+import { createAppStore } from './index';
+import { bootstrapApp, login, logout, saveAnswer, saveQuestion } from './thunks';
 
-const mockGetUsers = jest.fn();
-const mockGetQuestions = jest.fn();
-const mockSaveQuestion = jest.fn();
-const mockSaveQuestionAnswer = jest.fn();
-
-jest.unstable_mockModule('../api/_DATA', () => ({
-  _getUsers: mockGetUsers,
-  _getQuestions: mockGetQuestions,
-  _saveQuestion: mockSaveQuestion,
-  _saveQuestionAnswer: mockSaveQuestionAnswer,
+jest.mock('../api/_DATA', () => ({
+  _getUsers: jest.fn(),
+  _getQuestions: jest.fn(),
+  _saveQuestion: jest.fn(),
+  _saveQuestionAnswer: jest.fn(),
 }));
 
-let createAppStore;
-let bootstrapApp;
-let saveAnswer;
-let saveQuestion;
-let login;
-let logout;
+const mockGetUsers = _getUsers;
+const mockGetQuestions = _getQuestions;
+const mockSaveQuestion = _saveQuestion;
+const mockSaveQuestionAnswer = _saveQuestionAnswer;
 
 const createMockStorage = () => {
   let store = {};
@@ -36,15 +32,11 @@ const createMockStorage = () => {
 };
 
 beforeAll(async () => {
-  ({ createAppStore } = await import('./index'));
-  ({ bootstrapApp, saveAnswer, saveQuestion, login, logout } = await import('./thunks'));
+  jest.resetAllMocks();
 });
 
 beforeEach(() => {
-  mockGetUsers.mockReset();
-  mockGetQuestions.mockReset();
-  mockSaveQuestion.mockReset();
-  mockSaveQuestionAnswer.mockReset();
+  jest.resetAllMocks();
   Object.defineProperty(global, 'localStorage', {
     value: createMockStorage(),
     writable: true,

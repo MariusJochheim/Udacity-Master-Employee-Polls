@@ -1,38 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const AUTH_STORAGE_KEY = 'authedUser';
-
-const getStoredAuthedUser = () => {
-  if (typeof localStorage === 'undefined') {
-    return null;
-  }
-
-  try {
-    return localStorage.getItem(AUTH_STORAGE_KEY);
-  } catch (error) {
-    console.error('Failed to read authed user from storage', error);
-    return null;
-  }
-};
-
-export const persistAuthedUser = (authedUser) => {
-  if (typeof localStorage === 'undefined') {
-    return;
-  }
-
-  try {
-    if (authedUser) {
-      localStorage.setItem(AUTH_STORAGE_KEY, authedUser);
-    } else {
-      localStorage.removeItem(AUTH_STORAGE_KEY);
-    }
-  } catch (error) {
-    console.error('Failed to persist authed user', error);
-  }
+export const persistAuthedUser = () => {
+  // Intentionally no persistence so hard navigations require a fresh login.
 };
 
 export const getAuthInitialState = () => ({
-  authedUser: getStoredAuthedUser(),
+  authedUser: null,
 });
 
 const authSlice = createSlice({

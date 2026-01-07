@@ -15,33 +15,12 @@ const mockGetQuestions = _getQuestions;
 const mockSaveQuestion = _saveQuestion;
 const mockSaveQuestionAnswer = _saveQuestionAnswer;
 
-const createMockStorage = () => {
-  let store = {};
-  return {
-    getItem: (key) => (key in store ? store[key] : null),
-    setItem: (key, value) => {
-      store[key] = value;
-    },
-    removeItem: (key) => {
-      delete store[key];
-    },
-    clear: () => {
-      store = {};
-    },
-  };
-};
-
 beforeAll(async () => {
   jest.resetAllMocks();
 });
 
 beforeEach(() => {
   jest.resetAllMocks();
-  Object.defineProperty(global, 'localStorage', {
-    value: createMockStorage(),
-    writable: true,
-  });
-  localStorage.clear();
 });
 
 const buildSampleData = () => ({
@@ -71,10 +50,9 @@ const buildSampleData = () => ({
 });
 
 describe('store state management', () => {
-  test('loads authedUser from storage on init', () => {
-    localStorage.setItem('authedUser', 'jane');
+  test('does not rehydrate authedUser on init', () => {
     const store = createAppStore();
-    expect(store.getState().auth.authedUser).toBe('jane');
+    expect(store.getState().auth.authedUser).toBeNull();
   });
 
   test('bootstrapApp hydrates users and questions and toggles loading', async () => {
@@ -170,14 +148,12 @@ describe('store state management', () => {
     expect(store.getState().ui.error).toBe('Network down');
   });
 
-  test('logout clears authedUser state and storage', () => {
-    localStorage.setItem('authedUser', 'john');
+  test('logout clears authedUser state', () => {
     const store = createAppStore({ auth: { authedUser: 'john' } });
 
     store.dispatch(login('john'));
     store.dispatch(logout());
 
     expect(store.getState().auth.authedUser).toBeNull();
-    expect(localStorage.getItem('authedUser')).toBeNull();
   });
 });

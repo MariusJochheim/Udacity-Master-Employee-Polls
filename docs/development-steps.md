@@ -44,7 +44,7 @@
 - Empty-state illustrations/messages for tabs with no polls.
 
 ## 8) Testing
-- Maintain at least **10 passing Jest tests** runnable via `npm test` (documented so reviewers using the rubric’s phrase “npm start test” know this is the command).
+- Maintain at least **10 passing Jest tests** runnable via `npm test`.
 - Required `_DATA` tests:
   - Async test: `_saveQuestion` returns saved question with all expected fields for valid input.
   - Async test: `_saveQuestion` rejects with an error for invalid input.

@@ -1,22 +1,36 @@
-# Employee Polls Project
+# Employee Polls
 
-Employee Polls is a React + Redux single-page app for running “Would You Rather” style polls. Users log in as any available account, browse unanswered vs completed polls, vote, create new questions, and track standings on a leaderboard — all backed by the `_DATA.js` mock API.
+Employee Polls is a React + Redux “Would You Rather” dashboard. Users sign in as any of the demo accounts, browse unanswered vs completed polls, vote, create new questions, and track standings on a leaderboard — all powered by the `_DATA.js` mock API.
 
-## Getting Started
+## Quick Start
+- Prerequisite: Node 18+ and npm.
 - Install dependencies: `npm install`
-- Start the dev server: `npm run dev`
-- Run the test suite: `npm run test`
+- Start the dev server: `npm run dev` (Vite on http://localhost:5173)
+- Run the test suite: `npm test`
+- Lint the project: `npm run lint`
+- Production build / preview: `npm run build` then `npm run preview`
 
-## Project Features
-- Login gate for all routes with redirect back to the originally requested path
-- Home dashboard split into Active (unanswered) and Completed (answered) polls, sorted by recency
-- Poll detail view that handles voting, displays percentages, and highlights your choice
-- New poll form with validation and redirect back to the Active list after creation
-- Leaderboard ranking users by created + answered counts with a highlighted current user row
-- Not Found view for invalid poll ids or routes
+## App Flow
+- Login gate protects all routes and redirects back to the originally requested path after sign-in.
+- Home dashboard shows Active (unanswered) and Completed (answered) polls sorted by recency.
+- Poll detail handles voting, shows percentages, and highlights your choice; invalid ids render Not Found.
+- New poll form validates both options and redirects back to the Active list after creation.
+- Leaderboard ranks users by created + answered counts and highlights the current user.
 
-## Data Model Reference
-Data comes from `src/api/_DATA.js`, which exposes:
+## Demo Accounts (no password required)
+- `sarahedo` — Sarah Edo
+- `tylermcginnis` — Tyler McGinnis
+- `mtsamis` — Mike Tsamis
+- `zoshikanlu` — Zenobia Oshikanlu
+
+## Tech Stack
+- React 19 with React Router 7 for routing
+- Redux Toolkit + React Redux for global state
+- Vite for dev/build tooling
+- Jest + React Testing Library for tests
+
+## Mock API Reference
+`src/api/_DATA.js` exposes:
 - `_getUsers()` and `_getQuestions()` to load initial state
 - `_saveQuestion({ author, optionOneText, optionTwoText })` to create polls
 - `_saveQuestionAnswer({ authedUser, qid, answer })` to record votes

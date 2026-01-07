@@ -4,8 +4,8 @@ Employee Polls is a React + Redux single-page app for running “Would You Rathe
 
 ## Getting Started
 - Install dependencies: `npm install`
-- Start the dev server: `npm start`
-- Run the test suite: `npm test`
+- Start the dev server: `npm run dev`
+- Run the test suite: `npm run test`
 
 ## Project Features
 - Login gate for all routes with redirect back to the originally requested path

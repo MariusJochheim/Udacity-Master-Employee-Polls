@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap');
+
+:root {
+  --font-heading: 'Space Grotesk', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --color-charcoal: #0f172a;
+  --color-off-white: #f7f7f2;
+  --color-off-white-strong: #e8ecf1;
+  --color-teal: #12b8a6;
+  --color-teal-strong: #0fa490;
+  --color-amber: #f59f00;
+  --color-slate: #334155;
+  --color-slate-500: #475569;
+  --color-slate-400: #64748b;
+  --color-border: #e2e8f0;
+  --color-surface: #ffffff;
+  --shadow-card: 0 12px 30px rgba(15, 23, 42, 0.08);
+  --shadow-header: 0 8px 30px rgba(15, 23, 42, 0.12);
+  --radius-lg: 14px;
+  --radius-md: 12px;
+  --radius-sm: 10px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --max-width-content: 1080px;
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --gradient-bg: radial-gradient(circle at 12% 20%, rgba(18, 184, 166, 0.08), transparent 30%),
+    radial-gradient(circle at 86% 10%, rgba(245, 159, 0, 0.08), transparent 30%),
+    linear-gradient(135deg, #f7f7f2 0%, #e8ecf1 100%);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --max-width-content: 100%;
+  }
+}

@@ -9,6 +9,11 @@ const Card = ({
   ...props
 }) => {
   const classes = ['card', className].filter(Boolean).join(' ');
+  const renderTitle = () => {
+    if (!title) return null;
+    if (typeof title === 'string') return <h3>{title}</h3>;
+    return <div className="card-title">{title}</div>;
+  };
 
   return (
     <article className={classes} {...props}>
@@ -16,7 +21,7 @@ const Card = ({
       {(title || actions) && (
         <header className="card-header">
           <div>
-            {title && <h3>{title}</h3>}
+            {renderTitle()}
             {subtitle && <p className="muted">{subtitle}</p>}
           </div>
           {actions && <div className="card-actions">{actions}</div>}

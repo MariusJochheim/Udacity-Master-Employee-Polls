@@ -5,7 +5,7 @@ const Tabs = ({ tabs = [], activeKey, onChange }) => {
   );
   const count = tabs.length || 1;
   const indicatorStyle = {
-    transform: `translateX(${activeIndex * (100 / count)}%)`,
+    transform: `translateX(${activeIndex * 100}%)`,
     width: `${100 / count}%`,
   };
   const listStyle = { '--tabs-count': count };

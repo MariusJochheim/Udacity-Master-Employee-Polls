@@ -136,6 +136,37 @@
   color: #b91c1c;
 }
 
+.home-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-6);
+  margin-bottom: var(--spacing-5);
+}
+
+.poll-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-5);
+}
+
+.poll-card .poll-question {
+  margin: var(--spacing-2) 0 0;
+}
+
+.poll-author {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.poll-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+}
+
 .panel {
   background: var(--color-surface);
   border-radius: var(--radius-lg);

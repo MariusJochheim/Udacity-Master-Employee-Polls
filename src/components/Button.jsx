@@ -1,4 +1,5 @@
 const Button = ({
+  as: Component = 'button',
   variant = 'primary',
   type = 'button',
   leadingIcon,
@@ -17,12 +18,17 @@ const Button = ({
     .filter(Boolean)
     .join(' ');
 
+  const componentProps = { className: classes, ...props };
+  if (Component === 'button') {
+    componentProps.type = type;
+  }
+
   return (
-    <button type={type} className={classes} {...props}>
+    <Component {...componentProps}>
       {leadingIcon && <span className="button-icon">{leadingIcon}</span>}
       <span className="button-label">{children}</span>
       {trailingIcon && <span className="button-icon">{trailingIcon}</span>}
-    </button>
+    </Component>
   );
 };
 

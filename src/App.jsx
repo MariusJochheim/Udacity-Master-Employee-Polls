@@ -18,8 +18,8 @@ const App = () => (
         <Route path="/questions/:id" element={<QuestionDetail />} />
         <Route path="/add" element={<NewQuestion />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
-      <Route path="*" element={<NotFound />} />
     </Route>
   </Routes>
 );

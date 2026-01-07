@@ -144,6 +144,106 @@
   margin-bottom: var(--spacing-5);
 }
 
+.leaderboard-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+.leaderboard-rule {
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: 999px;
+  border: 1px dashed var(--color-border);
+  background: rgba(15, 23, 42, 0.03);
+  font-weight: 600;
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-4);
+}
+
+.leaderboard-row {
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.leaderboard-row.is-current-user {
+  background: linear-gradient(120deg, rgba(18, 184, 166, 0.08), rgba(245, 159, 0, 0.08));
+  border-color: rgba(18, 184, 166, 0.4);
+}
+
+.leaderboard-row-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.leaderboard-rank {
+  min-width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.04);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: var(--color-charcoal);
+  letter-spacing: -0.01em;
+}
+
+.leaderboard-user {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+}
+
+.leaderboard-name {
+  margin: 0;
+}
+
+.leaderboard-you {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(18, 184, 166, 0.12);
+  color: var(--color-teal);
+  font-weight: 700;
+  border: 1px solid rgba(18, 184, 166, 0.2);
+}
+
+.leaderboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-3);
+}
+
+.leaderboard-stat {
+  padding: var(--spacing-3);
+  border-radius: var(--radius-md);
+  background: rgba(15, 23, 42, 0.03);
+  border: 1px solid var(--color-border);
+  display: grid;
+  gap: 4px;
+}
+
+.leaderboard-stat dt {
+  color: var(--color-slate-400);
+  font-weight: 600;
+}
+
+.leaderboard-stat dd {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--color-charcoal);
+}
+
 .poll-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
